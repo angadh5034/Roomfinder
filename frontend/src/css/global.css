@@ -1,0 +1,180 @@
+/* ===== global.css ===== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #F0F4F8;
+  color: #0a1628;
+  overflow-x: hidden;
+}
+
+.page-placeholder {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #6b7a90;
+}
+
+/* ──────────────────────────────────────────────────────────
+   ✨ GLOBAL PREMIUM ANIMATIONS & TRANSITIONS
+   ────────────────────────────────────────────────────────── */
+
+/* 1. Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseBadge {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* 2. Entrance Animation Assignment (Cards and Wrappers) */
+.room-card, 
+.my-room-card, 
+.fav-card, 
+.login-card, 
+.addroom-wrapper, 
+.editroom-wrapper, 
+.profile-sidebar, 
+.profile-form-panel,
+.renter-wrapper {
+  animation: fadeInUp 0.45s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* Entry Stagger Delays for List Items */
+.room-card:nth-child(1), .fav-card:nth-child(1), .my-room-card:nth-child(1) { animation-delay: 0.04s; }
+.room-card:nth-child(2), .fav-card:nth-child(2), .my-room-card:nth-child(2) { animation-delay: 0.08s; }
+.room-card:nth-child(3), .fav-card:nth-child(3), .my-room-card:nth-child(3) { animation-delay: 0.12s; }
+.room-card:nth-child(4), .fav-card:nth-child(4), .my-room-card:nth-child(4) { animation-delay: 0.16s; }
+.room-card:nth-child(5), .fav-card:nth-child(5), .my-room-card:nth-child(5) { animation-delay: 0.2s; }
+.room-card:nth-child(6), .fav-card:nth-child(6), .my-room-card:nth-child(6) { animation-delay: 0.24s; }
+
+/* 3. Smooth Card Hover Transitions */
+.room-card, .my-room-card, .fav-card {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              border-color 0.3s ease !important;
+}
+
+.room-card:hover, .my-room-card:hover, .fav-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 14px 30px rgba(10, 22, 40, 0.12) !important;
+  border-color: rgba(77, 184, 255, 0.4) !important;
+}
+
+/* 4. Smooth Button & Link Micro-Interactions */
+button, 
+.add-first-btn, 
+.nav-link, 
+.add-room-btn, 
+.mrc-renters-btn, 
+.mrc-edit-btn, 
+.mrc-delete-btn,
+.login-submit-btn,
+.fav-request-btn,
+.nav-login-btn,
+.nav-logout-btn,
+.profile-save-btn,
+.profile-cancel-btn,
+.sidebar-nav-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+button:hover,
+.add-first-btn:hover,
+.nav-login-btn:hover,
+.nav-logout-btn:hover,
+.profile-save-btn:hover,
+.profile-cancel-btn:hover,
+.add-room-btn:hover {
+  filter: brightness(1.08);
+}
+
+button:active,
+.add-first-btn:active,
+.nav-login-btn:active,
+.nav-logout-btn:active,
+.profile-save-btn:active,
+.profile-cancel-btn:active {
+  transform: scale(0.97) !important;
+}
+
+/* 5. Navbar Hover Underlines */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2.2px;
+  background-color: #4db8ff;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Pulse Badge Animation */
+.nav-fav-badge {
+  animation: pulseBadge 2.2s infinite ease-in-out;
+}
+
+/* 6. Modal Blur Transitions */
+.renter-modal-overlay, 
+.modal-overlay,
+.agreement-modal-overlay {
+  animation: fadeIn 0.25s ease both;
+  backdrop-filter: blur(4px);
+}
+
+.renter-modal-box, 
+.modal-box,
+.agreement-modal-box {
+  animation: scaleIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* 7. Input focus transitions */
+input, textarea, select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 3.5px rgba(77, 184, 255, 0.16) !important;
+}
+

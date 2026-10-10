@@ -1,0 +1,343 @@
+/* ===== Navbar.css ===== */
+
+.navbar-custom {
+  background: #0a1628;
+  border-bottom: 2px solid #1e3a5f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  font-size: 22px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4db8ff;
+  letter-spacing: 0.5px;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.nav-link:hover {
+  background: #1e3a5f;
+  color: #4db8ff;
+}
+
+.nav-link.active {
+  background: #1e3a5f;
+  color: #4db8ff;
+  border-bottom: 2px solid #4db8ff;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #1e3a5f;
+  transition: border-color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.profile-avatar:hover {
+  border-color: #4db8ff;
+  background: #1e3a5f;
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a5276, #4db8ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-initials {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.profile-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Hamburger - hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #b0c4de;
+  border-radius: 2px;
+  display: block;
+  transition: background 0.2s;
+}
+
+.hamburger:hover span {
+  background: #4db8ff;
+}
+
+/* Mobile: hide profile in mobile menu by default */
+.profile-mobile {
+  display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: #0a1628;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 4px;
+    border-bottom: 2px solid #1e3a5f;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+  }
+
+  .profile-avatar {
+    display: none;
+  }
+
+  .profile-mobile {
+    display: block;
+    width: 100%;
+    border-top: 1px solid #1e3a5f;
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+}
+
+/* ===== PROFILE DROPDOWN ===== */
+.nav-profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-profile-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px solid #1e3a5f;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.nav-profile-toggle:hover {
+  border-color: #4db8ff;
+  background: #1e3a5f;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #0d1f38;
+  border: 1.5px solid #1e3a5f;
+  border-radius: 12px;
+  width: 220px;
+  padding: 12px 6px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: navDropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes navDropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nav-dropdown-user-info {
+  padding: 4px 14px 8px 14px;
+}
+
+.nav-dropdown-fullname {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-dropdown-username {
+  color: #8fa0b5;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: #1e3a5f;
+  margin: 6px 6px;
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  gap: 8px;
+}
+
+.nav-dropdown-item:hover {
+  background: #1e3a5f;
+  color: #4db8ff;
+}
+
+.nav-dropdown-count {
+  margin-left: auto;
+  background: #1e3a5f;
+  color: #8fa0b5;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.nav-dropdown-item:hover .nav-dropdown-count {
+  background: #2a4b7c;
+  color: #4db8ff;
+}
+
+.logout-item {
+  color: #ff4d4d;
+}
+
+.logout-item:hover {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+}
+
+/* hamburger X when open */
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.hamburger span { transition: transform 0.2s, opacity 0.2s; }
+
+/* Favorites badge on nav link */
+.nav-fav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e84393;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-left: 5px;
+  vertical-align: middle;
+  line-height: 1;
+}

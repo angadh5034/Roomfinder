@@ -1,0 +1,400 @@
+/* ============================
+   Favorites.css
+   Styles ONLY for Favorites page
+   ============================ */
+
+.favorites-page {
+  min-height: 100vh;
+  background: #f0f4f8;
+  padding: 36px 16px 56px;
+}
+
+.favorites-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Page Header ── */
+.fav-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.fav-page-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0a1628;
+  margin: 0 0 4px;
+}
+
+.fav-page-sub {
+  font-size: 13px;
+  color: #6b7a90;
+  margin: 0;
+}
+
+.fav-count-badge {
+  background: #0a1628;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 20px;
+}
+
+/* ── Grid ── */
+.fav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* ── Favorite Card ── */
+.fav-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #dce6f0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.fav-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* ── Photo ── */
+.fav-photo-wrap {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: #1a2a3a;
+}
+
+.fav-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.fav-card:hover .fav-photo { transform: scale(1.03); }
+
+/* Remove (heart) button */
+.fav-remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.15s, background 0.15s;
+  z-index: 5;
+}
+.fav-remove-btn:hover {
+  transform: scale(1.15);
+  background: #fff0f6;
+}
+
+/* Photo dots */
+.fav-photo-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 5;
+}
+.fav-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+}
+.fav-dot.active {
+  background: #ffffff;
+  width: 20px;
+  border-radius: 4px;
+}
+
+.fav-photo-count {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+/* ── Card Body ── */
+.fav-card-body {
+  padding: 16px 18px;
+}
+
+.fav-rent-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.fav-rent {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0a1628;
+}
+
+.fav-rent-type {
+  font-size: 13px;
+  color: #4db8ff;
+  font-weight: 600;
+  margin-left: 3px;
+}
+
+.fav-saved-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c0185a;
+  background: #fff0f6;
+  border: 1px solid #f7b8d4;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.fav-notes {
+  font-size: 13px;
+  color: #5a6a7e;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.fav-date {
+  font-size: 11px;
+  color: #8a9ab5;
+  margin-bottom: 14px;
+}
+
+/* ── More Details ── */
+.fav-more-details {
+  border-top: 1px solid #f0f4f8;
+  padding-top: 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: favFadeIn 0.2s ease;
+}
+
+@keyframes favFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fav-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.fav-detail-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.fav-detail-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #8a9ab5;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 2px;
+}
+
+.fav-detail-value {
+  display: block;
+  font-size: 13px;
+  color: #0a1628;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.fav-detail-contact {
+  display: block;
+  font-size: 14px;
+  color: #4db8ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.fav-detail-contact:hover { text-decoration: underline; }
+
+/* ── More / Less Button ── */
+.fav-more-btn {
+  width: 100%;
+  padding: 9px 16px;
+  background: #f0f4f8;
+  border: 1.5px solid #dce6f0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a1628;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.fav-more-btn:hover {
+  background: #e8f5ff;
+  border-color: #4db8ff;
+}
+.fav-less-btn {
+  background: #fff0f0;
+  border-color: #f5c0c0;
+  color: #c0392b;
+}
+.fav-less-btn:hover {
+  background: #ffe0e0;
+}
+
+/* ── Request to Rent Button ── */
+.fav-request-btn {
+  width: 100%;
+  padding: 10px 16px;
+  background: #0a1628;
+  border: 1.5px solid #0a1628;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+.fav-request-btn:hover {
+  background: #1a5276;
+  border-color: #1a5276;
+}
+.fav-request-btn.fav-requested {
+  background: #e6f9ee;
+  border-color: #52c97a;
+  color: #1a6a3a;
+  cursor: default;
+}
+.fav-request-btn.fav-requested:hover {
+  background: #e6f9ee;
+}
+
+/* ── Flash notification ── */
+.fav-flash {
+  width: 100%;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+  animation: flashIn 0.25s ease;
+}
+@keyframes flashIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fav-flash-success {
+  background: #e6f9ee;
+  color: #1a6a3a;
+  border: 1px solid #52c97a;
+}
+.fav-flash-warn {
+  background: #fff8e1;
+  color: #7a5200;
+  border: 1px solid #f0c040;
+}
+
+
+/* ── Empty State ── */
+.fav-empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #dce6f0;
+}
+
+.fav-empty-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.fav-empty h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0a1628;
+  margin-bottom: 10px;
+}
+
+.fav-empty p {
+  font-size: 14px;
+  color: #6b7a90;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.fav-browse-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #0a1628;
+  color: #ffffff;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.15s;
+}
+.fav-browse-btn:hover {
+  background: #1a5276;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.fav-own-listing-msg {
+  width: 100%;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1.5px solid #cbd5e1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: not-allowed;
+}
+
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .fav-page-title { font-size: 20px; }
+  .fav-grid { grid-template-columns: 1fr; }
+  .fav-photo-wrap { height: 190px; }
+}
